@@ -20,9 +20,8 @@ print(SumMultiple(3,1000)+SumMultiple(5,1000)-SumMultiple(15,1000))
 def SumMultiple2(number1, number2, limit):
     i = 0
     total = 0
-    while i < limit:
+    for i in range(limit):
         if i % number1 == 0 or i % number2 == 0: total += i
-        i += 1
     return total
 
 print (SumMultiple2(3, 5, 1000))
