@@ -5,6 +5,9 @@
 #
 # Answer: 233168
 
+import time
+
+# Initial way:
 def SumMultiple(mult, limit):
     total = 0
     totsum = (limit-1) // mult
@@ -15,8 +18,13 @@ def SumMultiple(mult, limit):
     total *= mult
     return total
 
+print("Method 1:")
+start = time.perf_counter()
 print(SumMultiple(3,1000)+SumMultiple(5,1000)-SumMultiple(15,1000))
+elapsed1 = time.perf_counter() - start
+print("Elapsed in %s seconds\n" % elapsed1)
 
+# Another way found from the internet:
 def SumMultiple2(number1, number2, limit):
     i = 0
     total = 0
@@ -24,4 +32,12 @@ def SumMultiple2(number1, number2, limit):
         if i % number1 == 0 or i % number2 == 0: total += i
     return total
 
+print("Method 2:")
+start = time.perf_counter()
 print (SumMultiple2(3, 5, 1000))
+elapsed2 = time.perf_counter() - start
+print("Elapsed in %s seconds\n" % elapsed2)
+
+# Speed factor
+factor = elapsed1/elapsed2
+print("Method 2 is %s faster than Method 1" % factor)

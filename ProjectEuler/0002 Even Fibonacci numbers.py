@@ -8,13 +8,23 @@
 #
 # Answer: 4613732
 
-prev1 = 2
-prev2 = 1
-curr = prev1 + prev2
-total = prev1
-while curr < 4000000:
-    if curr % 2 == 0: total += curr
-    prev2 = prev1
-    prev1 = curr
+import time
+
+# Found from the internet
+def FiboEvenSum (limit):
+    prev1 = 2
+    prev2 = 1
     curr = prev1 + prev2
-print(total)
+    total = prev1
+    while curr < limit:
+        if curr % 2 == 0: total += curr
+        prev2 = prev1
+        prev1 = curr
+        curr = prev1 + prev2
+    return total
+
+print("Method 1:")
+start = time.perf_counter()
+print(FiboEvenSum(4000000))
+elapsed1 = time.perf_counter() - start
+print("Elapsed in %s seconds\n" % elapsed1)

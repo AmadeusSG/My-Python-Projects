@@ -4,6 +4,10 @@
 #
 # Answer: 6857
 
+import time
+
+# Own method, adapted from the internet
+
 def LargestPrimeNo(number):
     i = 2
     while i <= number:
@@ -11,4 +15,8 @@ def LargestPrimeNo(number):
         else: i += 1
     return i
 
+print("Method 1:")
+start = time.perf_counter()
 print(LargestPrimeNo(600851475143))
+elapsed1 = time.perf_counter() - start
+print("Elapsed in %s seconds\n" % elapsed1)
