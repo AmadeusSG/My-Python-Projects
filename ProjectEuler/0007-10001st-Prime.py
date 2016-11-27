@@ -4,7 +4,9 @@
 #
 # Answer: 104743
 
-import math
+import math, time
+
+# Method 1: Sieving primes method, found from the internet
 
 def primes_sieve(n):
     p_n = int(2 * n * math.log(n))       # over-estimate p_n, follows the Prime Number Theorem
@@ -18,4 +20,10 @@ def primes_sieve(n):
             for j in range(2 * i, p_n, i):  # cross off all multiples of i
                 sieve[j] = False
 
+print("Method 1:")
+start = time.perf_counter()
 print (primes_sieve(10001))
+elapsed1 = time.perf_counter() - start
+print("Elapsed in %s seconds\n" % elapsed1)
+
+

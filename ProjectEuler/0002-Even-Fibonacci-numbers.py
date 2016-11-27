@@ -28,3 +28,5 @@ start = time.perf_counter()
 print(FiboEvenSum(4000000))
 elapsed1 = time.perf_counter() - start
 print("Elapsed in %s seconds\n" % elapsed1)
+
+# TODO: Now create a choice whether to find Odd, Even, or All to find the sum.

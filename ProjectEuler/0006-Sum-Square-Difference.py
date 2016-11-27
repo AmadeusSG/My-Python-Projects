@@ -10,15 +10,26 @@
 # Find the difference between the sum of the squares of the
 # first one hundred natural numbers and the square of the sum.
 #
-# Answer:
+# Answer: 25164150
 
-sumsquare = 0
-squaresum = 0
+import time
 
-i = 1
-while i <=100:
-    sumsquare += i**2
-    squaresum += i
-    i += 1
-squaresum **= 2
-print(squaresum-sumsquare)
+# Method 1: Own method
+
+def DiffSumSqSum(limit):
+    sumsquare = 0
+    squaresum = 0
+
+    i = 1
+    while i <= limit:
+        sumsquare += i**2
+        squaresum += i
+        i += 1
+    squaresum **= 2
+    return squaresum-sumsquare
+
+print("Method 1:")
+start = time.perf_counter()
+print(DiffSumSqSum(100))
+elapsed1 = time.perf_counter() - start
+print("Elapsed in %s seconds\n" % elapsed1)

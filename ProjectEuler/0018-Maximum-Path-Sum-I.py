@@ -61,7 +61,7 @@ elapsed1 = time.perf_counter() - start
 print("List initialised in %s seconds\n" % elapsed1)
 
 # Method 1 - Typical method, created from scratch (incomplete)
-
+#
 # def PathSumTop(): # Gets the max sum from the top, going top to bottom
 #
 #     J = list(M)
