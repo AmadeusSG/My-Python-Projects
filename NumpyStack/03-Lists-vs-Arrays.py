@@ -2,6 +2,14 @@
 import numpy as np
 import time
 
+def TimeElapsed(ID, function):
+    start = time.perf_counter()
+    print("Method %s:" % ID)
+    calc = function
+    elapsed = time.perf_counter() - start
+    print("Answer is %s, elapsed in %s seconds\n" % (calc, elapsed))
+    return elapsed
+
 ###################################
 # Lecture 3 - Lists vs Arrays     #
 ###################################
@@ -21,19 +29,18 @@ def loop(list):
     for e in list:
         print(e)
 
-start = time.perf_counter()
 print ('Loop of list:')
-loop(L)
-elapsed1 = time.perf_counter() - start
-print ("Elapsed in %s seconds\n" % elapsed1)
+elapsed1 = TimeElapsed(1,loop(L))
 
-start = time.perf_counter()
-print ('Loop of array"')
+print ('Loop of array:')
 loop(A)
-elapsed2 = time.perf_counter() - start
-print ("Elapsed in %s seconds\n" % elapsed2)
+elapsed2 = TimeElapsed(2,loop(A))
+
+# Speed Factor
 factor = elapsed1/elapsed2
-print ("Factor of %s\n" % factor)
+print ("Method 2 is %s faster than Method 1" % factor)
+
+print("")
 
 # What only lists can do:
 print("What only lists can do:")
@@ -67,19 +74,19 @@ print("For multiplication on lists, you need to do a for loop:\n")
 
 # For multiplication on lists
 L1 = [1,2,3]
-start = time.perf_counter()
-L2 = []
-for e in L1:
-    L2.append(e + e)
-print(L2)
-elapsed1 = time.perf_counter() - start
+def listmultiply():
+    L2 = []
+    for e in L1:
+        L2.append(e + e)
+    return L2
+
+elapsed1 = TimeElapsed(1,listmultiply())
 print ("Elapsed in %s seconds for list loop\n" % elapsed1)
 
 # For multiplication on arrays
-start = time.perf_counter()
-print(2*A)
-elapsed2 = time.perf_counter() - start
-print ("Elapsed in %s seconds for array multiplication\n" % elapsed2)
+elapsed2 = TimeElapsed(2,2*A)
+
+# Speed Factor
 factor = elapsed1/elapsed2
-print ("Factor of %s\n" % factor)
+print ("Method 2 is %s faster than Method 1" % factor)
 

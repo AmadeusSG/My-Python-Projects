@@ -2,7 +2,7 @@ import numpy as np
 import time
 
 ###################################
-# Lecture 4 and 5 - Dot Product   #
+# Lecture 4 - Dot Product         #
 ###################################
 
 def TimeElapsed(ID, function):
